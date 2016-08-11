@@ -13,30 +13,29 @@ include_once("../model/db.php");
 include_once("../model/usuario.php");
 
 session_start();
-if (isset($_POST['usuario']) && isset($_POST['usuario'])) {
+if (isset($_POST['usuario']) && isset($_POST['passwd'])) {
     $user = $_POST['usuario'];
     $pass = md5($_POST['passwd']);
 
     $usuario = new usuario();
     $query = $usuario->login($user, $pass);
 
-if($row = mysqli_fetch_array($query)) {
+    $row = mysqli_fetch_array($query);
     $_SESSION['nom'] = $row[2];
     $_SESSION['perf'] = $row[7];
 
-}
     if($_SESSION['perf'] == 'admin')
     {header("location:../view/_menu_admin.php");
     }elseif($_SESSION['perf'] == 'vendedor')
         {header("location: ../view/_menu_vendedor.php");
-        }else{header("Refresh: 2;url=../view/_login.php");
-            echo
-            "<div class=\"alert alert-warning alert-dismissable\">
+        }else {
+        header("Refresh: 2;url=../view/_login.php");
+        echo
+        "<div class=\"alert alert-warning alert-dismissable\">
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>
                 <strong>Oops!</strong> Datos incorrectos.
             </div>";
-            session_destroy();
-            }
+    }
 }
 ?>
 <script src="../web/js/bootstrap.min.js"></script>

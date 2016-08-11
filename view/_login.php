@@ -45,7 +45,6 @@
     </form>
 
 </div> <!-- /container -->
-
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../web/js/bootstrap.js"></script>
 <script src="../web/js/jquery.min.js"></script>

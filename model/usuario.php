@@ -22,9 +22,9 @@ class usuario
     public function existeUsuario($nombre)
     {
         $q="SELECT * FROM usuario WHERE nombre = '" . $nombre . "' ";
-        $DB = new db();
-        $num = $DB->conexion->query($q);
-        return mysqli_num_rows($num);
+        $db = new db();
+        //$num = $db->conexion->query($q);
+        return mysqli_num_rows($db->conexion->query($q));
     }
 
     public function login($usuario, $password){

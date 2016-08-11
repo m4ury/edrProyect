@@ -11,12 +11,12 @@ $(document).ready(function(){
         //hace la búsqueda
         $.ajax({
             type: "POST",
-            url: "../../controller/buscaProducto.php",
+            url: '../controller/buscaProducto.php',
             data: "b="+consulta,
             dataType: "html",
             beforeSend: function(){
                 //imagen de carga
-                $("#resultado").html("<p align='center'><img src='../img/loading.gif' /></p>");
+                $("#resultado").html("<p align='center'>cargando...</p>");
             },
             error: function(){
                 alert("error petición ajax");

@@ -2,7 +2,6 @@
 include_once('../model/db.php');
 //include_once('../controller/login.php');
 include_once('../model/usuario.php');
-
 $perfil = array(
     "0"=>"Seleccione Perfil","Admin"=>"admin","Vendedor"=>"vendedor"
 );

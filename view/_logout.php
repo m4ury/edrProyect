@@ -38,6 +38,5 @@ echo "<div class='alert alert-warning alert-dismissable'>
   </div>";
 $log = new db();
 $log->cerrar();
-session_start();
 session_destroy();
 header("Refresh:2; url=_login.php");

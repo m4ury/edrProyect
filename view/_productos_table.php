@@ -1,6 +1,5 @@
 <?php
 include_once('../model/db.php');
-include_once('../controller/login.php');
 include_once('../model/producto.php');
 session_start();
 ?>
@@ -45,7 +44,8 @@ session_start();
                         <li class="active"><a href="_menu_admin.php">Home</a></li>
                         <li><a href="_usuarios_table.php">Usuarios</a></li>
                         <li><a href="_productos_table.php">Productos</a></li>
-                        <li><a href="_productos_table.php">Proveedores</a></li>
+                        <li><a href="_compras_table.php">Compras</a></li>
+                        <li><a href="_ventas_table.php">Ventas</a></li>
                         <li><a href="_logout.php">Cerrar Session</a></li>
                     </ul>
                 </div>
@@ -54,6 +54,8 @@ session_start();
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="_menu_vendedor.php">Home</a></li>
                         <li><a href="_productos_table.php">Productos</a></li>
+                        <li><a href="_compras_table.php">Compras</a></li>
+                        <li><a href="_ventas_table.php">Ventas</a></li>
                         <li><a href="_logout.php">Cerrar Session</a></li>
                     </ul>
                 </div>

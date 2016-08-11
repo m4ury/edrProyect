@@ -24,10 +24,13 @@
 <?php
 include_once ('../model/db.php');
 
-$buscar = $_POST['b'];
+if(isset($_POST['b'])) {
 
-if(!empty($buscar)) {
-    buscar($buscar);
+    $buscar = $_POST['b'];
+
+    if (!empty($buscar)) {
+        buscar($buscar);
+    }
 }
 
 function buscar($b) {
@@ -35,12 +38,14 @@ function buscar($b) {
     $q = "SELECT * FROM producto WHERE NOMBRE LIKE '%".$b."%' AND ACTIVO =1 LIMIT 10";
 
     $result = $db->conexion->query($q);
+
     $contar = mysqli_num_rows($result);
 
     if($contar == 0){
         echo "No se han encontrado resultados para '<b>".$b."</b>'.";
     }else{
-        echo "<table class='table table-responsive table-hover'>
+        echo "
+    <table class='table table-responsive'>
         <thead>
         <tr>
             <th>Nombre</th>
@@ -49,8 +54,8 @@ function buscar($b) {
             <th>Cantidad</th>
         </tr>
         </thead>";
-        while($row = mysqli_fetch_array($result)){ ?>
 
+        while($row = mysqli_fetch_array($result)){ ?>
             <tbody>
     <tr>
         <td>
@@ -66,7 +71,7 @@ function buscar($b) {
             <?php echo $precio = $row['CANTIDAD'];?>
         </td>
     </tr>
-    <?php } ?>
+    <?php }  ?>
             </tbody>
     </table>
 <?php
@@ -81,5 +86,6 @@ function buscar($b) {
 <script>window.jQuery || document.write('<script src="../web/js/jquery.min.js"><\/script>')</script>
 <script src="../web/js/bootstrap.min.js"></script>
 <script src="../web/js/jquery.min.js"></script>
+<script src="../web/js/buscar.js"></script>
 </body>
 </html>
